@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BlueZone Scripts: local config instructions</title>
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+        }
+        .jumbotron {
+            background-color: green;
+            color: white;
+            text-align: center;
+        }
+
+        .config-instructions {
+            border-bottom: dashed lightgrey thin;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        .config-instructions-no-bottom-border {
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        .instructions-screenshots {
+            width: 100%;
+            height: 100%;
+        }
+
+        figcaption {
+            font-size: smaller;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="jumbotron">
+	<div class="container">
+		<h1>Welcome to BlueZone Scripts!</h1>
+		<p>Now let's learn a bit more!</p>
+	</div>
+</div>
+
+<div class="container">
+    <h1>About this document</h1>
+    <p>If you've gotten this far, and can see this document, one of two things is probably happening:</p>
+    <ul>
+        <li>You've just installed BlueZone Scripts, or</li>
+        <li>You already installed scripts, and clicked on the "instructions" link in your Power Pad.</li>
+    </ul>
+    <p>If you already installed scripts, and want to skip the intro stuff, <a href="#alreadyinstalled">click here</a>.
+        Otherwise, let's learn a bit more!</p>
+
+    <hr>
+
+    <h1>Configuring workstations to point to BlueZone Scripts</h1>
+    <p>If you've just installed BlueZone Scripts, and don't see Power Pads or scripts on workstations yet, you need to
+        configure things a bit more. Here, we'll walk you through those steps.</p>
+
+    <div class="row config-instructions">
+        <div class="col-xs-12 col-md-8">
+            <h4>Step 1: open BlueZone</h4>
+            <p>For most users, this should already be present on the desktop. It could be called "BlueZone Mainframe
+                Display", "BlueZone Session Manager", or something else entirely.</p>
+            <p>If you don't have BlueZone installed, or aren't sure, talk to your IT lead. BlueZone is the application
+                you use to connect to MAXIS, PRISM, and MMIS. All users of those systems should have BlueZone
+                installed.</p>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <figure>
+                <a href="https://raw.githubusercontent.com/MN-Script-Team/bzs-config-utility/master/img/PRISM-Session-Manager-Icons.jpg" target="_blank"><img alt='A purple Windows desktop with two icons: one is for "BlueZone Session Manager" and the other is for "Alternate Desktop.zmd."' class="instructions-screenshots" src="https://raw.githubusercontent.com/MN-Script-Team/bzs-config-utility/master/img/PRISM-Session-Manager-Icons.jpg"></a>
+                <figcaption>Your BlueZone icons probably look something like this. The session manager contains several *.ZMD files, typically stored in your "\Documents\BlueZone\Config" folder. Your local files could look very different. </figcaption>
+            </figure>
+        </div>
+    </div>
+    <div class="row config-instructions">
+        <div class="col-xs-12 col-md-8">
+            <h4 id="APIsettings">Step 2: update API settings</h4>
+            <p>On the BlueZone menu bar, click “Options”, then “API”. Make sure “Enable DDE Server Interface”,
+                “Auto-Assign HLLAPI Names”, and “Allow Multiple Simultaneous Connections” are all checked. Uncheck
+                “Auto-Launch the BlueZone DOS HLLAPI Redirector”. Press “OK” when finished.</p>
+            <p>The API settings ensure that when scripts are used in multiple sessions (screens), BlueZone knows to
+                which session the commands should be routed.</p>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <figure>
+                <a href="https://raw.githubusercontent.com/MN-Script-Team/bzs-config-utility/master/img/PRISM-API-settings.jpg" target="_blank"><img alt='An image of the Options>API dialog from BlueZone. The "Enable DDE Server Interface," "Auto-Assign HLLAPI Names," and "Allow Multiple Simultaneous Connections" checkboxes are checked.'class="instructions-screenshots" src="https://raw.githubusercontent.com/MN-Script-Team/bzs-config-utility/master/img/PRISM-API-settings.jpg"></a>
+                <figcaption>These three checkboxes should be checked in order to ensure your script installation is working as expected.</figcaption>
+            </figure>
+        </div>
+    </div>
+    <div class="row config-instructions">
+        <div class="col-xs-12 col-md-8">
+            <h4>Step 3: add the Power Pad</h4>
+            <p>On the menu bar, click “View”, then “Properties”, and navigate to the "Power Pads" tab. Here, we will add
+                the official Power Pad for your use. </p>
+            <p>Based on the script installer, your Power Pad directory appears to be <a
+                    href="C:\DHS-PRISM-Scripts\locally-installed-files\">C:\DHS-PRISM-Scripts\locally-installed-files\</a>.
+                In the "Power Pads" tab, copy this URL into the "Power Pads Directory" at the bottom of the dialog, then
+                select the DHS supported Power Pad and click "Add". Pressing "apply" should make the Power Pad display
+                on the BlueZone window.</p>
+            <p>Wrap up the Power Pad work by checking "Show Power Pads" and "Enable Docking." Press "OK" to exit the
+                window. You may need to dock your Power Pad to the top or bottom of your BlueZone screen, by clicking
+                (and holding) the title bar of the Power Pad and slowly dragging it to the top (or bottom) of the
+                BlueZone window, until it turns into an “outline” that’s docked to the screen. Release the mouse, and
+                your Power Pad will be docked.</p>
+            <aside>
+                <small>Note: if you're concerned about the size of the Power Pad, you can reclaim some screen space by
+                    going to the “ToolBars” tab, then uncheck the boxes for “Show 3270 Keys”, “Show Auto-Entry”, “Show
+                    TN3270/E”, “Show Menu Buttons”, and “Show Quick Colors” if your staff do not use those features.
+                </small>
+            </aside>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <figure>
+                <a href="https://raw.githubusercontent.com/MN-Script-Team/bzs-config-utility/master/img/PRISM-Power-Pad-window.jpg" target="_blank"><img alt='An image of the View>Properties>Power Pads dialog in BlueZone. The "Show Power Pads" and "Enable Docking" checkboxes are checked, and the "Power Pads Directory" has been updated with the installed network drive. The "Available Power Pads" column shows a "dhs-supported-prism" Power Pad, and the user is hovering over the "Add" button, about to add it.' class="instructions-screenshots" src="https://raw.githubusercontent.com/MN-Script-Team/bzs-config-utility/master/img/PRISM-Power-Pad-window.jpg"></a>
+                <figcaption>After inserting the Power Pads directory into the dialog, right away, you should see the PRISM Power Pad pop up. Click "Add" to add it to your screen, and ensure "Show Power Pads" and "Enable Docking" are both checked.</figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <div class="row config-instructions">
+        <div class="col-xs-12 col-md-8">
+            <h4>Step 4: modify the script directory</h4>
+            <p>On the menu bar, click “Script”, then “Properties”. Modify the scripts directory (bottom of the dialog)
+                to match the installation directory referenced in the last step. Press “OK” when finished.</p>
+            <p>Now, test your installation by trying one of the screen navigation scripts. Make sure you're logged in to
+                PRISM (and not password-ed out!) before testing. If it doesn't work, check your directories referenced
+                in steps 3 and 4 before seeking support.</p>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <figure>
+                <a href="https://raw.githubusercontent.com/MN-Script-Team/bzs-config-utility/master/img/PRISM-Script-Directory.jpg" target="_blank"><img alt='An image of the Scripts>Properties dialog in BlueZone, with a network drive inserted into the "Scripts Directory" field.' class="instructions-screenshots" src="https://raw.githubusercontent.com/MN-Script-Team/bzs-config-utility/master/img/PRISM-Script-Directory.jpg"></a>
+                <figcaption>Insert the same directory from Step 3 into this dialog. That makes sure the scripts all connect to the right place!</figcaption>
+            </figure>
+        </div>
+    </div>
+    <div class="row config-instructions-no-bottom-border">
+        <div class="col-xs-12 col-md-8">
+            <h4>Step 5: save it and share it!</h4>
+            <p>On the menu bar, press “File” and “Save”, to make sure these configuration settings are not lost. Then,
+                it is recommended that you save a copy by clicking "Save As" and navigating to your installation
+                directory (indicated as <a href="C:\DHS-PRISM-Scripts\locally-installed-files\">C:\DHS-PRISM-Scripts\locally-installed-files\</a>),
+                then saving a copy as "default.zmd" for others to gain access to.</p>
+            <p>Once that's done, attach the *.zmd file to an email and send it to a coworker to <em>download</em> and
+                test. If they can double click the file (once downloaded to their machine) and use the scripts, then
+                email the file to all staff!</p>
+            <aside>
+                <small>Note: if the *.zmd file does not open after emailing it, try saving a copy of the file in the My
+                    Documents\BlueZone\config directory. Advanced system administrators may be able to create group
+                    policies to move the default.zmd file to this location for staff to use.
+                </small>
+            </aside>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <figure>
+                <a href="https://raw.githubusercontent.com/MN-Script-Team/bzs-config-utility/master/img/PRISM-success.jpg" target="_blank"><img alt="An image of a BlueZone window, with a Power Pad on the top, and an overlayed thumbs up icon." class="instructions-screenshots" src="https://raw.githubusercontent.com/MN-Script-Team/bzs-config-utility/master/img/PRISM-success.jpg"></a>
+                <figcaption>Success! Everything should be ready to go!</figcaption>
+            </figure>
+
+        </div>
+    </div>
+
+
+    <hr>
+
+    <h1 id="alreadyinstalled">Already installed? Looking for info/help?</h1>
+    <p>If you've already installed your scripts, but are looking for help, there are some options outside of this
+        document.</p>
+
+    <h4>Script Instructions</h4>
+    <p>Instructions for each PRISM script are located on <a
+            href="https://www.dhssir.cty.dhs.state.mn.us/BlueZoneScripting/PRISM/PRISM%20Script%20Instructions/Forms/AllItems.aspx">DHS-SIR
+        in a document library</a>. Each script has a Word document containing detailed instructions and screenshots of
+        what actions each script takes. It is recommended that script users review these documents frequently.</p>
+
+    <h4>Suggesting improvements or reporting bugs</h4>
+    <p>For bug reporting, simply <a href="mailto:veronica.cary@state.mn.us">email Veronica Cary at DHS</a> and she will
+        work with you further. If you believe you've detected a bug, please take the time to confirm it by doing the
+        following steps:</p>
+    <ul>
+        <li>Is the issue happening on just one case? If so, check to make sure it's not a NAT error or other
+            PRISM-related bug.
+        </li>
+        <li>Is the issue happening for multiple users? If not, try having the user log in and use the script on another
+            machine.
+        </li>
+        <li>Also, check <a href="#APIsettings">the API settings as referenced above</a>. Sometimes API settings being
+            set up incorrectly can cause problems for users.
+        </li>
+    </ul>
+    <p>If you've checked the above, and the issue still persists, ask an alpha user to contact DHS for help. According to the installer, your contact person/email is <a href="mailto:installed.locally@co.place.mn.us">installed.locally@co.place.mn.us</a>.</p>
+
+    <h4>Where can I learn more about BlueZone Scripts?</h4>
+    <p>We have two primary resources for staff interested in BlueZone Scripts:</p>
+    <ul>
+        <li>Our script repository <a href="http://github.com/MN-Script-Team/DHS-PRISM-Scripts">on GitHub</a>, where BlueZone scriptwriters work collaboratively from around the state, and </li>
+        <li>Our BlueZone Scripts page <a href="https://www.dhssir.cty.dhs.state.mn.us/BlueZoneScripting/PRISM/default.aspx">on DHS-SIR</a>, which is only accessible by human services and IT staff.</li>
+    </ul>
+    <p>Please use these resources, and let staff know if you have questions!</p>
+
+    <h4>I lost my BlueZone Scripts Power Pad!</h4>
+    <p>If you (or a coworker) lost the Power Pad, it can be challenging to get it back. The easiest solution is to <a href="C:\DHS-PRISM-Scripts\locally-installed-files\default.zmd">download the default *.zmd file</a> and save it to your machine (either on the desktop or in the default BlueZone config directory). Then, just open that file and you should have scripts again. Alternatively, if the default *.zmd file is not working, following the steps above should restore the scripts. Saving a copy of the *.zmd file on the desktop may help with this issue if it happens frequently.</p>
+    <p>If a coworker loses their scripts, simply send them a link to this document!</p>
+
+    <!-- Footer! -->
+    <footer class="footer">
+        <hr>
+        <p class="text-muted">This document created by <a href="mailto:veronica.cary@state.mn.us">Veronica Cary, Minnesota Department of Human Services</a> in October 2016. The source code for PRISM BlueZone Scripts <a href="https://github.com/MN-Script-Team/DHS-PRISM-Scripts">is available</a>.</p>
+    </footer>
+
+
+</div>
+
+
+</body>
+</html>
